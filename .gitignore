@@ -3,3 +3,5 @@
 scdhlm.Rproj
 .Rproj.user
 ^revdep/
+
+renv
