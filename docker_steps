@@ -1,0 +1,43 @@
+# For windosw
+- open cmd, change directory to the folder that contains the Dockerfile
+- windows change directory from C to D, "cd /d D-directory"
+- then run docker 
+
+- docker login
+docker login
+docker image ls
+
+- build the image (pay attention to the space and period)
+docker build -t manchen07/rvescd:v0 .
+
+- check the docker image list
+docker image ls
+
+- check and test your app
+docker run -d --rm -p 3838:3838 imageiddocker
+localhost:3838 in your browser
+
+- Check your packages 
+docker run -ti imageID
+
+- show all the packages in R
+sessionInfo()
+
+- push the image to DockerHub
+docker push manchen07/rvescd:v0
+
+
+# updates
+- add required package into install_packages.R 
+- go to terminal
+- go to the directory, which has “Dockerfile”
+
+# update v0 to v1
+# cd at rvescdv1
+docker images
+docker build -t manchen07/rvescd:v1 .
+docker push manchen07/rvescd:v1
+
+# to remove from docker image
+docker image rm -f imageID
+
