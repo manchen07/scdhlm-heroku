@@ -262,12 +262,12 @@ ui <-
                                                  conditionalPanel(condition = "input.degree_base != 0",
                                                                   uiOutput("model_centering2")),
                                                  fluidRow(
-                                                   column(12, h4("Model fit"), tableOutput("Bayes_sample_size")),
-                                                   column(12, tableOutput("Bayes_fit_fixed")),
-                                                   column(12, tableOutput("Bayes_fit_random")),
-                                                   column(12, tableOutput("Bayes_fit_corr")),
-                                                   column(12, tableOutput("Bayes_fit_var")),
-                                                   column(12, tableOutput("Bayes_info"))
+                                                   column(12, h4("Model fit"), tableOutput("Bayes_sample_size"))
+                                                   # column(12, tableOutput("Bayes_fit_fixed")),
+                                                   # column(12, tableOutput("Bayes_fit_random")),
+                                                   # column(12, tableOutput("Bayes_fit_corr")),
+                                                   # column(12, tableOutput("Bayes_fit_var")),
+                                                   # column(12, tableOutput("Bayes_info"))
                                                  )
                                         ),
                                         tabPanel("Bayesian plots",

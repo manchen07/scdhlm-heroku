@@ -792,64 +792,64 @@ server <-
     caption.placement = getOption("xtable.caption.placement", "top"),
     digits = 4, include.rownames = FALSE)
     
-    output$Bayes_fit_fixed <- renderTable({
-      if (input$method == "Bayes") {
-        fixed_table <- summary(model_fit()$model)$fixed
-        if (input$varStruct == "hom") {
-          return(fixed_table)
-        } else {
-          return(fixed_table[2:(nrow(fixed_table) - 1), ])
-        }
-      }
-    }, 
-    caption = "Fixed effects", 
-    caption.placement = getOption("xtable.caption.placement", "top"),
-    digits = 4, include.rownames = TRUE)
-    
-    output$Bayes_fit_random <- renderTable({
-      if (input$method == "Bayes") {
-        random_list <- summary(model_fit()$model)$random
-        random_table <- do.call(rbind, random_list)
-        if (input$varStruct == "hom") {
-          sigma <- summary(model_fit()$model)$spec_pars
-          return(rbind(random_table, sigma))
-        } else {
-          return(random_table)
-        }
-      }
-    },
-    caption = "Random effects",
-    caption.placement = getOption("xtable.caption.placement", "top"),
-    digits = 4, na = "", include.rownames = TRUE)
-    
-    output$Bayes_fit_corr <- renderTable({
-      if (input$method=="Bayes" & input$corStruct != "IID") {
-        data.frame("Correlation parameter" = model_fit()$phi, check.names = FALSE)
-      }
-    }, 
-    caption = "Correlation structure", 
-    caption.placement = getOption("xtable.caption.placement", "top"),
-    digits = 4, include.rownames = FALSE)
-    
-    output$Bayes_fit_var <- renderTable({
-      if (input$method == "Bayes" & input$varStruct == "het") {
-        data.frame("Baseline" = 1, "Treatment" = model_fit()$var_param)
-      }
-    }, 
-    caption = "Variance structure", 
-    caption.placement = getOption("xtable.caption.placement", "top"),
-    digits = 4, include.rownames = FALSE)
-    
-    output$Bayes_info <- renderTable({
-      if (input$method == "Bayes") {
-        data.frame("LOOIC" = loo(model_fit()$model)$looic, 
-                   "WAIC" = waic(model_fit()$model)$waic,
-                   check.names = FALSE) 
-      }
-    }, 
-    caption = "Information criteria", 
-    caption.placement = getOption("xtable.caption.placement", "top"),
-    digits = 4, include.rownames = FALSE)
+    # output$Bayes_fit_fixed <- renderTable({
+    #   if (input$method == "Bayes") {
+    #     fixed_table <- summary(model_fit()$model)$fixed
+    #     if (input$varStruct == "hom") {
+    #       return(fixed_table)
+    #     } else {
+    #       return(fixed_table[2:(nrow(fixed_table) - 1), ])
+    #     }
+    #   }
+    # }, 
+    # caption = "Fixed effects", 
+    # caption.placement = getOption("xtable.caption.placement", "top"),
+    # digits = 4, include.rownames = TRUE)
+    # 
+    # output$Bayes_fit_random <- renderTable({
+    #   if (input$method == "Bayes") {
+    #     random_list <- summary(model_fit()$model)$random
+    #     random_table <- do.call(rbind, random_list)
+    #     if (input$varStruct == "hom") {
+    #       sigma <- summary(model_fit()$model)$spec_pars
+    #       return(rbind(random_table, sigma))
+    #     } else {
+    #       return(random_table)
+    #     }
+    #   }
+    # },
+    # caption = "Random effects",
+    # caption.placement = getOption("xtable.caption.placement", "top"),
+    # digits = 4, na = "", include.rownames = TRUE)
+    # 
+    # output$Bayes_fit_corr <- renderTable({
+    #   if (input$method=="Bayes" & input$corStruct != "IID") {
+    #     data.frame("Correlation parameter" = model_fit()$phi, check.names = FALSE)
+    #   }
+    # }, 
+    # caption = "Correlation structure", 
+    # caption.placement = getOption("xtable.caption.placement", "top"),
+    # digits = 4, include.rownames = FALSE)
+    # 
+    # output$Bayes_fit_var <- renderTable({
+    #   if (input$method == "Bayes" & input$varStruct == "het") {
+    #     data.frame("Baseline" = 1, "Treatment" = model_fit()$var_param)
+    #   }
+    # }, 
+    # caption = "Variance structure", 
+    # caption.placement = getOption("xtable.caption.placement", "top"),
+    # digits = 4, include.rownames = FALSE)
+    # 
+    # output$Bayes_info <- renderTable({
+    #   if (input$method == "Bayes") {
+    #     data.frame("LOOIC" = loo(model_fit()$model)$looic, 
+    #                "WAIC" = waic(model_fit()$model)$waic,
+    #                check.names = FALSE) 
+    #   }
+    # }, 
+    # caption = "Information criteria", 
+    # caption.placement = getOption("xtable.caption.placement", "top"),
+    # digits = 4, include.rownames = FALSE)
 
     
     # Calculate effect sizes
