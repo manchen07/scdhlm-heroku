@@ -5,21 +5,21 @@ library(scdhlm)
 library(readxl)
 library(janitor)
 
-install_rstan <- requireNamespace("rstan", quietly = TRUE) && requireNamespace("StanHeaders", quietly = TRUE)
-
-if (install_rstan && 
-    packageVersion("rstan") >= "2.26.22" &&
-    packageVersion("StanHeaders") >= "2.26.27") {
-
-  estimation_names <- c("Moment estimation" = "HPS",
-                        "Restricted Maximum Likelihood" = "RML",
-                        "Bayesian estimation (Markov Chain Monte Carlo)" = "Bayes")
-  library(brms)
-  
-} else {
-  estimation_names <- c("Moment estimation" = "HPS",
-                        "Restricted Maximum Likelihood" = "RML")
-}
+# install_rstan <- requireNamespace("rstan", quietly = TRUE) && requireNamespace("StanHeaders", quietly = TRUE)
+# 
+# if (install_rstan && 
+#     packageVersion("rstan") >= "2.26.22" &&
+#     packageVersion("StanHeaders") >= "2.26.27") {
+# 
+#   estimation_names <- c("Moment estimation" = "HPS",
+#                         "Restricted Maximum Likelihood" = "RML",
+#                         "Bayesian estimation (Markov Chain Monte Carlo)" = "Bayes")
+#   library(brms)
+#   
+# } else {
+#   estimation_names <- c("Moment estimation" = "HPS",
+#                         "Restricted Maximum Likelihood" = "RML")
+# }
 
 source("mappings.R", local = TRUE)
 source("helper-functions.R", local = TRUE)
