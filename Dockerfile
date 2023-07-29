@@ -1,5 +1,5 @@
 # change here is you want to pin R version
-FROM rocker/shiny:latest
+FROM rocker/shiny:4.2.2
 
 # change maintainer here
 LABEL maintainer="Man Chen <manchen9005@gmail.com>"
@@ -30,7 +30,7 @@ COPY /inst/shiny-examples/scdhlm ./app
 RUN R -e 'install.packages("StanHeaders", repos = c("https://mc-stan.org/r-packages/", getOption("repos")))'
 RUN R -e 'install.packages("rstan", repos = c("https://mc-stan.org/r-packages/", getOption("repos")))'
 # RUN install2.r --error remotes
-RUN install2.r --error remotes shiny markdown ggplot2 readxl janitor plyr glue rclipboard brms
+RUN install2.r --error Rcpp pillar ellipsis vctrs remotes shiny markdown ggplot2 readxl janitor plyr glue rclipboard brms
 # RUN installGithub.r jepusto/scdhlm@Bayesian
 RUN installGithub.r manchen07/scdhlm-heroku@Bayesian
 
