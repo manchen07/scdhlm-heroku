@@ -4,6 +4,7 @@ library(ggplot2)
 library(scdhlm)
 library(readxl)
 library(janitor)
+library(brms)
 
 # install_rstan <- requireNamespace("rstan", quietly = TRUE) && requireNamespace("StanHeaders", quietly = TRUE)
 # 

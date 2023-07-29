@@ -31,7 +31,8 @@ RUN R -e 'install.packages("StanHeaders", repos = c("https://mc-stan.org/r-packa
 RUN R -e 'install.packages("rstan", repos = c("https://mc-stan.org/r-packages/", getOption("repos")))'
 # RUN install2.r --error remotes
 RUN install2.r --error remotes shiny markdown ggplot2 readxl janitor plyr glue rclipboard brms
-RUN installGithub.r jepusto/scdhlm@Bayesian
+# RUN installGithub.r jepusto/scdhlm@Bayesian
+RUN installGithub.r manchen07/scdhlm-heroku@Bayesian
 
 # install renv & restore packages
 # RUN Rscript -e 'install.packages("renv")'
