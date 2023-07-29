@@ -30,7 +30,7 @@ COPY /inst/shiny-examples/scdhlm ./app
 RUN R -e 'install.packages("StanHeaders", repos = c("https://mc-stan.org/r-packages/", getOption("repos")))'
 RUN R -e 'install.packages("rstan", repos = c("https://mc-stan.org/r-packages/", getOption("repos")))'
 # RUN install2.r --error remotes
-RUN install2.r --error remotes shiny markdown ggplot2 readxl janitor plyr glue rclipboard
+RUN install2.r --error remotes shiny markdown ggplot2 readxl janitor plyr glue rclipboard brms
 RUN installGithub.r jepusto/scdhlm@Bayesian
 
 # install renv & restore packages
