@@ -40,5 +40,8 @@ RUN installGithub.r jepusto/scdhlm@Bayesian
 # EXPOSE can be used for local testing, not supported in Heroku's container runtime
 EXPOSE 3838
 
+# web process/code should get the $PORT environment variable
+ENV PORT=3838
+
 # command we want to run
-CMD ["R", "-e", "shiny::runApp('/app', host = '0.0.0.0', port = 3838)"]
+CMD ["R", "-e", "shiny::runApp('/app', host = '0.0.0.0', port=as.numeric(Sys.getenv('PORT')))"]
