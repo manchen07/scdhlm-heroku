@@ -28,12 +28,12 @@ COPY renv.lock ./renv.lock
 ## app folder
 COPY /inst/shiny-examples/scdhlm ./app
 
-RUN R -e 'install.packages("StanHeaders", repos = c("https://mc-stan.org/r-packages/", getOption("repos")))'
-RUN R -e 'install.packages("rstan", repos = c("https://mc-stan.org/r-packages/", getOption("repos")))'
-# RUN install2.r --error Rcpp pillar ellipsis vctrs remotes shiny markdown ggplot2 readxl janitor plyr glue rclipboard brms
-RUN install2.r --error remotes shiny markdown ggplot2 readxl janitor plyr glue rclipboard brms
-# RUN installGithub.r jepusto/scdhlm@Bayesian
-RUN installGithub.r manchen07/scdhlm-heroku@Bayesian
+# RUN R -e 'install.packages("StanHeaders", repos = c("https://mc-stan.org/r-packages/", getOption("repos")))'
+# RUN R -e 'install.packages("rstan", repos = c("https://mc-stan.org/r-packages/", getOption("repos")))'
+# Add brms if for bayesian
+RUN install2.r --error remotes shiny markdown ggplot2 readxl janitor plyr glue rclipboard
+RUN installGithub.r jepusto/scdhlm@main
+# RUN installGithub.r manchen07/scdhlm-heroku@Bayesian
 
 # install renv & restore packages
 # RUN Rscript -e 'install.packages("renv")'
